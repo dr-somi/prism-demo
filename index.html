@@ -7,13 +7,12 @@
   <title>PRISM — Live Classroom</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;0,600;1,300&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header class="app-header">
     <a class="brand" href="#" aria-label="PRISM home">
-      <span class="brand-mark" aria-hidden="true"></span>
       <span>PRISM</span>
     </a>
     <div class="session-meta">
@@ -39,17 +38,18 @@
         <p class="prompt-context">Take a moment to record your own response. You’ll see your classmates’ perspectives after you submit.</p>
 
         <form id="responseForm">
-          <label for="discipline">Your disciplinary lens</label>
-          <select id="discipline" required>
-            <option value="">Select an area</option>
-            <option>Arts & Humanities</option>
-            <option>Business</option>
-            <option>Education</option>
-            <option>Engineering & Computing</option>
-            <option>Health & Life Sciences</option>
-            <option>Social Sciences</option>
-            <option>Other / Exploring</option>
-          </select>
+          <fieldset class="choice-fieldset">
+            <legend>Your disciplinary lens</legend>
+            <div class="option-grid discipline-options">
+              <label class="select-card"><input type="radio" name="discipline" value="Arts & Humanities" required><span>Arts & Humanities</span></label>
+              <label class="select-card"><input type="radio" name="discipline" value="Business"><span>Business</span></label>
+              <label class="select-card"><input type="radio" name="discipline" value="Education"><span>Education</span></label>
+              <label class="select-card"><input type="radio" name="discipline" value="Engineering & Computing"><span>Engineering & Computing</span></label>
+              <label class="select-card"><input type="radio" name="discipline" value="Health & Life Sciences"><span>Health & Life Sciences</span></label>
+              <label class="select-card"><input type="radio" name="discipline" value="Social Sciences"><span>Social Sciences</span></label>
+              <label class="select-card"><input type="radio" name="discipline" value="Other / Exploring"><span>Other / Exploring</span></label>
+            </div>
+          </fieldset>
 
           <label for="responseText">Your response</label>
           <textarea id="responseText" maxlength="500" required placeholder="Write a few words or a few sentences…"></textarea>
@@ -57,7 +57,14 @@
             <span>Your name will not appear in the class view.</span>
             <span id="charCount">0 / 500</span>
           </div>
-          <button class="primary-button" type="submit">Reflect with PRISM</button>
+          <fieldset class="choice-fieldset response-mode-fieldset">
+            <legend>How would you like your response to appear?</legend>
+            <div class="option-grid response-mode-options">
+              <label class="select-card mode-card"><input type="radio" name="responseMode" value="original" required checked><span><strong>Keep my words</strong><small>Show the response exactly as written.</small></span></label>
+              <label class="select-card mode-card"><input type="radio" name="responseMode" value="polished"><span><strong>Polish with PRISM</strong><small>Improve clarity while preserving my meaning.</small></span></label>
+            </div>
+          </fieldset>
+          <button id="responseSubmit" class="primary-button" type="submit">Continue with my words</button>
         </form>
       </article>
 
@@ -66,7 +73,7 @@
         <h2>What your response brings forward</h2>
         <p id="privateReflection" class="reflection-copy"></p>
 
-        <div class="version-card">
+        <div id="originalVersionCard" class="version-card">
           <div>
             <span class="version-label">Your original</span>
             <p id="originalResponse"></p>
@@ -74,12 +81,12 @@
           <button id="shareOriginal" class="choice-button" type="button">Share original</button>
         </div>
 
-        <div class="version-card recommended">
+        <div id="polishedVersionCard" class="version-card recommended">
           <div>
-            <span class="version-label">Clearer version · Meaning preserved</span>
+            <span class="version-label">Polished version · Meaning preserved</span>
             <p id="clarifiedResponse"></p>
           </div>
-          <button id="shareClarified" class="choice-button" type="button">Share clearer version</button>
+          <button id="shareClarified" class="choice-button" type="button">Share polished version</button>
         </div>
       </article>
 

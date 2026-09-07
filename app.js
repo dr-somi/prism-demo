@@ -122,23 +122,36 @@ $("#responseText").addEventListener("input", event => {
   $("#charCount").textContent = `${event.target.value.length} / 500`;
 });
 
+$$('input[name="responseMode"]').forEach(input => {
+  input.addEventListener("change", () => {
+    if (!input.checked) return;
+    $("#responseSubmit").textContent = input.value === "polished"
+      ? "Polish with PRISM"
+      : "Continue with my words";
+  });
+});
+
 $("#responseForm").addEventListener("submit", event => {
   event.preventDefault();
   if (!state.acceptingResponses) return;
   const text = $("#responseText").value.trim();
-  const discipline = $("#discipline").value;
-  if (!text || !discipline) return;
+  const discipline = $('input[name="discipline"]:checked')?.value;
+  const responseMode = $('input[name="responseMode"]:checked')?.value;
+  if (!text || !discipline || !responseMode) return;
 
   state.draft = {
     discipline,
     original: escapeText(text),
     clarified: clarify(text),
-    reflection: buildReflection(text)
+    reflection: buildReflection(text),
+    responseMode
   };
 
   $("#privateReflection").textContent = state.draft.reflection;
   $("#originalResponse").textContent = state.draft.original;
   $("#clarifiedResponse").textContent = state.draft.clarified;
+  $("#originalVersionCard").hidden = responseMode !== "original";
+  $("#polishedVersionCard").hidden = responseMode !== "polished";
   $("#responsePanel").hidden = true;
   $("#reflectionPanel").hidden = false;
 });
