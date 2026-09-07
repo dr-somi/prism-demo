@@ -127,13 +127,36 @@ dialog::backdrop { background: rgba(26,24,20,.5); }
 .display-card p { margin: 18px 0 0; font-family: var(--sans); font-size: clamp(18px,2vw,25px); font-weight: 300; line-height: 1.45; }
 .display-summary { margin-top: 18px; padding: 22px; display: grid; grid-template-columns: 190px 1fr; gap: 22px; border-left: 5px solid var(--punch); background: rgba(255,255,255,.45); }
 .display-summary p { margin: 0; font-family: var(--sans); font-size: 19px; font-weight: 300; line-height: 1.55; }
-.response-shell { width: min(720px,calc(100% - 40px)); margin: 0 auto; padding: 44px 0 70px; }
-.response-shell .standalone-brand { margin-bottom: 54px; }
-.response-ticket { margin-top: 28px; border: 1px solid var(--line); background: var(--paper); }
-.response-ticket-bar { height: 7px; background: repeating-linear-gradient(90deg,var(--punch) 0,var(--punch) 28px,var(--ink) 28px,var(--ink) 56px); }
-.response-ticket-body { padding: 26px; }
-.response-ticket blockquote { margin: 12px 0 24px; padding-left: 14px; border-left: 3px solid var(--punch); font-family: var(--sans); font-size: 21px; font-weight: 300; line-height: 1.5; }
-.response-analysis { font-family: var(--sans); font-size: 17px; font-weight: 300; line-height: 1.65; }
+.response-shell { width: min(760px,calc(100% - 40px)); margin: 0 auto; padding: 54px 0 70px; }
+.response-page-header { margin-bottom: 40px; }
+.response-page-header .standalone-brand { margin: 8px 0; font-size: clamp(48px,9vw,72px); line-height: 1; }
+.response-page-header p { margin: 0; color: var(--gray); font-size: 11px; letter-spacing: 1px; }
+.archive-card { overflow: hidden; border-radius: 2px; background: #fff; box-shadow: 0 10px 32px rgba(0,0,0,.11); }
+.archive-card-header { padding: 24px 28px 20px; display: flex; justify-content: space-between; align-items: start; border-bottom: 1px solid rgba(0,0,0,.1); }
+.archive-card-header div { display: grid; gap: 7px; }
+.archive-card-header span { color: var(--gray); font-size: 9px; font-weight: 600; letter-spacing: 2.5px; }
+.archive-card-header strong { font-size: 21px; }
+.archive-card-header b { color: var(--punch); font-size: 12px; letter-spacing: 1px; }
+.punch-row { height: 42px; padding: 0 28px; display: flex; align-items: center; gap: 7px; background: var(--ink); }
+.punch-row i { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,.2); }
+.punch-row i.on { background: var(--punch); box-shadow: 0 0 6px rgba(232,59,42,.75); }
+.archive-card-body { padding: 28px; }
+.archive-card-title { display: flex; align-items: center; justify-content: space-between; font-size: 20px; letter-spacing: 1px; }
+.archive-card-title span { width: 34px; height: 30px; border: 1px solid var(--gray); display: grid; place-items: center; }
+.archive-rule { margin: 20px 0 24px; border-top: 1px dashed #bbb; }
+.archive-label { color: var(--gray); font-size: 9px; font-weight: 600; letter-spacing: 2.5px; }
+.archive-card blockquote { margin: 10px 0 25px; padding: 5px 0 5px 13px; border-left: 4px solid var(--punch); font-family: var(--sans); font-size: 20px; font-weight: 500; line-height: 1.45; }
+.response-analysis { margin: 10px 0 24px; font-family: var(--sans); font-size: 17px; font-weight: 300; line-height: 1.7; }
+.archive-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 24px; }
+.archive-tags span { padding: 5px 9px; border: 1px solid #bbb; color: var(--gray); font-size: 9px; letter-spacing: 1px; }
+.archive-tags .primary { border-color: var(--ink); background: var(--ink); color: white; }
+.archive-card-footer { padding-top: 17px; display: flex; justify-content: space-between; gap: 15px; border-top: 1px solid #ddd; color: var(--gray); font-size: 9px; font-weight: 500; letter-spacing: 1px; }
+.archive-card-footer strong { color: var(--punch); letter-spacing: 1.5px; }
+.response-privacy { margin: 18px 0 0; color: var(--gray); font-size: 9px; text-align: center; }
+.live-response-card { margin-top: 25px; }
+.live-response-card .version-card { margin: 10px 0 26px; padding: 14px; background: #fff; }
+.live-response-card .version-card p { margin: 0; font-size: 18px; font-weight: 500; }
+.live-response-card .reflection-label { display: block; margin-top: 4px; }
 .response-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; margin-top: 18px; }
 @media (max-width: 760px) {
   .standalone-header,.standalone-main { width: min(100% - 32px,680px); }

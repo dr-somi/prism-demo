@@ -72,23 +72,33 @@
       <article id="reflectionPanel" class="panel reflection-panel" hidden>
         <p class="eyebrow">Private reflection · Only visible to you</p>
         <h2>What your response brings forward</h2>
-        <p id="privateReflection" class="reflection-copy"></p>
-
-        <div id="originalVersionCard" class="version-card">
-          <div>
-            <span class="version-label">Your original</span>
-            <p id="originalResponse"></p>
+        <section class="archive-card live-response-card">
+          <header class="archive-card-header">
+            <div><span>PRISM · PRIVATE REFLECTION</span><strong>YOUR RESPONSE</strong></div>
+            <b>#0001</b>
+          </header>
+          <div class="punch-row" aria-hidden="true">
+            <i class="on"></i><i class="on"></i><i></i><i class="on"></i><i></i><i></i><i class="on"></i><i class="on"></i><i></i><i class="on"></i><i></i><i></i><i></i><i class="on"></i>
           </div>
-          <button id="shareOriginal" class="choice-button" type="button">Share original</button>
-        </div>
-
-        <div id="polishedVersionCard" class="version-card recommended">
-          <div>
-            <span class="version-label">Polished version · Meaning preserved</span>
-            <p id="clarifiedResponse"></p>
+          <div class="archive-card-body">
+            <div class="archive-card-title"><strong id="responseDiscipline">YOUR LENS</strong><span>—</span></div>
+            <div class="archive-rule"></div>
+            <span class="archive-label">WHAT GOT LOGGED</span>
+            <div id="originalVersionCard" class="version-card">
+              <div><p id="originalResponse"></p></div>
+              <button id="shareOriginal" class="choice-button" type="button">Share original</button>
+            </div>
+            <div id="polishedVersionCard" class="version-card recommended">
+              <div><p id="clarifiedResponse"></p></div>
+              <button id="shareClarified" class="choice-button" type="button">Share polished version</button>
+            </div>
+            <span class="archive-label reflection-label">PRISM REFLECTION</span>
+            <p id="privateReflection" class="response-analysis"></p>
+            <div class="archive-tags"><span class="primary">PERSONAL JUDGMENT</span><span>ARTISTIC MEANING</span><span>CONTEXT</span></div>
+            <footer class="archive-card-footer"><span>PRIVATE · ONLY VISIBLE TO YOU</span><strong>CRITICAL OBSERVER</strong></footer>
           </div>
-          <button id="shareClarified" class="choice-button" type="button">Share polished version</button>
-        </div>
+        </section>
+        <p class="response-privacy">Your response will not be stored or used to train this AI tool.</p>
       </article>
 
       <section id="classPanel" class="class-panel" hidden aria-labelledby="classHeading">

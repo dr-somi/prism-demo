@@ -150,6 +150,7 @@ $("#responseForm").addEventListener("submit", event => {
   $("#privateReflection").textContent = state.draft.reflection;
   $("#originalResponse").textContent = state.draft.original;
   $("#clarifiedResponse").textContent = state.draft.clarified;
+  $("#responseDiscipline").textContent = state.draft.discipline.toUpperCase();
   $("#originalVersionCard").hidden = responseMode !== "original";
   $("#polishedVersionCard").hidden = responseMode !== "polished";
   $("#responsePanel").hidden = true;
