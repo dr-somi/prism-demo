@@ -36,6 +36,7 @@ textarea { width: 100%; min-height: 160px; padding: 16px; border: 1px solid var(
 textarea::placeholder { color: rgba(0,0,0,.3); font-style: italic; }
 textarea:focus { border-color: var(--punch); }
 .field-meta { display: flex; justify-content: space-between; gap: 20px; margin: 8px 2px 26px; color: var(--gray); font-size: 10px; }
+.privacy-note { margin: -14px 0 28px; padding-left: 11px; border-left: 2px solid var(--punch); color: var(--gray); font-size: 10px; line-height: 1.5; }
 
 .choice-fieldset { min-width: 0; margin: 28px 0 0; padding: 0; border: 0; }
 .choice-fieldset legend { margin-bottom: 11px; color: var(--punch); font-size: 10px; font-weight: 500; letter-spacing: 2.5px; text-transform: uppercase; }
