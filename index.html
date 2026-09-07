@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="PRISM live classroom participation prototype">
+  <title>PRISM — Live Classroom</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="app-header">
+    <a class="brand" href="#" aria-label="PRISM home">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span>PRISM</span>
+    </a>
+    <div class="session-meta">
+      <span class="live-dot" aria-hidden="true"></span>
+      <span>ART 140 · Live session</span>
+    </div>
+    <div class="role-switch" aria-label="Prototype view">
+      <button class="role-button active" data-view="student">Student</button>
+      <button class="role-button" data-view="instructor">Instructor</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="studentView" class="view student-view" aria-labelledby="promptTitle">
+      <div class="progress-row">
+        <span id="promptPosition">Prompt 1 of 3</span>
+        <span id="responseCount">0 perspectives shared</span>
+      </div>
+
+      <article id="responsePanel" class="panel response-panel">
+        <p class="eyebrow">Respond independently</p>
+        <h1 id="promptTitle">What makes an ordinary object become art?</h1>
+        <p class="prompt-context">Take a moment to record your own response. You’ll see your classmates’ perspectives after you submit.</p>
+
+        <form id="responseForm">
+          <label for="discipline">Your disciplinary lens</label>
+          <select id="discipline" required>
+            <option value="">Select an area</option>
+            <option>Arts & Humanities</option>
+            <option>Business</option>
+            <option>Education</option>
+            <option>Engineering & Computing</option>
+            <option>Health & Life Sciences</option>
+            <option>Social Sciences</option>
+            <option>Other / Exploring</option>
+          </select>
+
+          <label for="responseText">Your response</label>
+          <textarea id="responseText" maxlength="500" required placeholder="Write a few words or a few sentences…"></textarea>
+          <div class="field-meta">
+            <span>Your name will not appear in the class view.</span>
+            <span id="charCount">0 / 500</span>
+          </div>
+          <button class="primary-button" type="submit">Reflect with PRISM</button>
+        </form>
+      </article>
+
+      <article id="reflectionPanel" class="panel reflection-panel" hidden>
+        <p class="eyebrow">Private reflection · Only visible to you</p>
+        <h2>What your response brings forward</h2>
+        <p id="privateReflection" class="reflection-copy"></p>
+
+        <div class="version-card">
+          <div>
+            <span class="version-label">Your original</span>
+            <p id="originalResponse"></p>
+          </div>
+          <button id="shareOriginal" class="choice-button" type="button">Share original</button>
+        </div>
+
+        <div class="version-card recommended">
+          <div>
+            <span class="version-label">Clearer version · Meaning preserved</span>
+            <p id="clarifiedResponse"></p>
+          </div>
+          <button id="shareClarified" class="choice-button" type="button">Share clearer version</button>
+        </div>
+      </article>
+
+      <section id="classPanel" class="class-panel" hidden aria-labelledby="classHeading">
+        <div class="class-heading-row">
+          <div>
+            <p class="eyebrow">Class view · Anonymous</p>
+            <h2 id="classHeading">One question, many lenses</h2>
+          </div>
+          <button id="returnToPrompt" class="text-button" type="button">Edit my response</button>
+        </div>
+        <div id="perspectiveGrid" class="perspective-grid" aria-live="polite"></div>
+      </section>
+    </section>
+
+    <section id="instructorView" class="view instructor-view" hidden aria-labelledby="instructorHeading">
+      <div class="instructor-heading">
+        <div>
+          <p class="eyebrow">Instructor controls</p>
+          <h1 id="instructorHeading">Today’s conversation</h1>
+        </div>
+        <button id="newPromptButton" class="primary-button compact" type="button">+ New prompt</button>
+      </div>
+
+      <div class="instructor-layout">
+        <section class="panel prompt-list-panel">
+          <h2>Prompts</h2>
+          <div id="promptList" class="prompt-list"></div>
+        </section>
+
+        <section class="panel control-panel">
+          <p class="eyebrow">Currently live</p>
+          <h2 id="activePromptTitle"></h2>
+          <div class="metric-grid">
+            <div><strong id="metricResponses">0</strong><span>Responses</span></div>
+            <div><strong id="metricDisciplines">0</strong><span>Lenses</span></div>
+          </div>
+          <div class="control-actions">
+            <button id="togglePrompt" class="secondary-button" type="button">Close responses</button>
+            <button id="nextPrompt" class="primary-button" type="button">Launch next prompt</button>
+          </div>
+          <div class="summary-box">
+            <span class="version-label">Live pattern</span>
+            <p id="liveSummary">Patterns will appear as students share responses.</p>
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <dialog id="promptDialog">
+    <form id="promptForm" method="dialog">
+      <div class="dialog-heading">
+        <h2>Add a prompt</h2>
+        <button class="icon-button" value="cancel" aria-label="Close">×</button>
+      </div>
+      <label for="newPromptText">Question</label>
+      <textarea id="newPromptText" maxlength="240" required placeholder="What would you like students to consider?"></textarea>
+      <div class="dialog-actions">
+        <button class="secondary-button" value="cancel">Cancel</button>
+        <button id="savePrompt" class="primary-button compact" value="default">Add prompt</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>
